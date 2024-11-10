@@ -25,20 +25,21 @@ class HomeView extends StatelessWidget {
         },
         child: const Icon(Icons.add),
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
               CustomAppbar(
-                icon: Icon(Icons.search),
+                onPressed: () {},
+                icon: const Icon(Icons.search),
                 repalce: false,
                 titlel: 'Note',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
-              SingleChildScrollView(
+              const SingleChildScrollView(
                 child: Column(
                   children: [
                     NoteItem(),
