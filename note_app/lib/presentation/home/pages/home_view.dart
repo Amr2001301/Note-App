@@ -30,9 +30,13 @@ class HomeView extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
-              CustomAppbar(),
+              CustomAppbar(
+                icon: Icon(Icons.search),
+                repalce: false,
+                titlel: 'Note',
+              ),
               SizedBox(
-                height: 16,
+                height: 24,
               ),
               SingleChildScrollView(
                 child: Column(
