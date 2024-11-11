@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:note_app/core/const/color_app.dart';
+import 'package:note_app/presentation/home/model/note_model.dart';
 import 'package:note_app/presentation/home/pages/home_view.dart';
 import 'package:device_preview/device_preview.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final directory = await getApplicationDocumentsDirectory();
+  Hive.init(directory.path);
+  Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox<NoteModel>('note');
   runApp(DevicePreview(
     enabled: true,
     builder: (context) => const NoteApp(),
   ));
 }
+
+getApplicationDocumentsDirectory() {}
 
 class NoteApp extends StatelessWidget {
   const NoteApp({super.key});
